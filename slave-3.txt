@@ -41,3 +41,4 @@ configuration on master:
 14.chmod 700 known_hosts
 
 Configure the Slave using Manage Jenkins:
+Adding slave node 
