@@ -1,0 +1,43 @@
+1.ssh file of node --copy in gitbash
+2.sudo -i
+3.java
+4.java  --aptinstall default -jdk
+5.create---adduser jenkins-slave-01
+6.it will create home directory/jenkins for user
+7.password seetting further
+8.y/n option
+9.ls -l /home/ --it will shows no.of.users
+10.su jenkins-slave-01 --- it will move/switch user to jenkins user when we give this comand
+11.cd ~  --->switch the directory
+12. ls -l   -->it will show list of slave directory
+13. pwd (present working directory )  -->it will show presnt directory
+14. ssh-keygen  ----> it will generate private/public rsa key pair
+15. aftr this give ls -la --> it will show list of files where .ssh also present
+16. cd .ssh/ -->it will change directory ass .ssh
+17. ls -la --> it shows private and public rsa in list
+18. cat id_rsa  -->to read the private rsa
+19.ls -l
+20.cat id_rsa.pub > authorized_keys -->it will add extra key in .ssh 
+21.ls -l  --> to cross check whether it is added or not
+22. cat authorized_keys  -->
+23.chmod 700 authorized_keys -->to  give access 
+24.create wrk space ..it is already present so we need to go back..give  cd.. and again give pwd in next step it will show home/jenkins-slave
+
+
+configuration on master:
+1.cpy ssh link in terminal where already jenkins installed through existing instance
+2.sudo apt-get update
+3.Copy the slave node's public key
+4.vi known_hosts
+5.copy public key in that vi edit
+6.cd /var/lib/jenkins
+7.ls -la after that in that there is no .ssh folder ..so we need to create folder
+8.mkdir .ssh
+9. cd .ssh
+10.vi known_hosts and cpy public key in that.
+11.ls -l
+12.ssh-keyscan -H SLAVE-NODE-IP-OR-HOSTNAME >>/var/lib/jenkins/.ssh/known_hosts
+13.chown jenkins:jenkins known_hosts -->owner permissions
+14.chmod 700 known_hosts
+
+Configure the Slave using Manage Jenkins:
