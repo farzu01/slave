@@ -42,3 +42,4 @@ configuration on master:
 
 Configure the Slave using Manage Jenkins:
 open jenkins and configure node
+manage node and master 
